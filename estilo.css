@@ -7,12 +7,38 @@
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
+
+.cheio {
+    font-variation-settings:
+        'FILL' 1
+}
+
+.click {
+    cursor: pointer;
+    font-size: 30px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.curtida {
+    color: #E11E46;
+}
+
+.salvar {
+    color: #66382F;
+}
+
 
 body {
     background: rgba(255, 240, 207, 0.3);
@@ -66,7 +92,8 @@ body {
     font-size: 18px;
 }
 
-.nav-item:hover, .nav-item.ativo {
+.nav-item:hover,
+.nav-item.ativo {
     color: #8D8D8D;
     border-bottom: 2px solid #E11E46;
 }
@@ -85,6 +112,12 @@ body {
     font-family: 'Italiana';
     font-weight: 500;
     margin-right: 20px;
+}
+
+.titulo-2 span {
+    font-family: 'Poppins';
+    color: #E11E46;
+    font-size: 18px;
 }
 
 .titulo-div {
@@ -116,6 +149,13 @@ body {
 .receitas {
     width: 100%;
     font-family: 'Poppins';
+}
+
+.receita {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .item-3 {
@@ -163,9 +203,11 @@ body {
 
 .itens-minhas {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .itens-minhas p {
@@ -184,7 +226,7 @@ body {
 }
 
 .div-input div {
-    width: 45%;  
+    width: 45%;
 }
 
 .input {
@@ -192,7 +234,7 @@ body {
     height: 40px;
     background: transparent;
     border-radius: 4px;
-    border:2px solid #66382F;
+    border: 2px solid #66382F;
     padding: 10px;
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="estilo.css">
     <title>Formiguinhas</title>
 </head>
+
 <body class="inicio">
     <div>
         <div class="container">
@@ -18,7 +20,7 @@
             <h1 class="titulo">FORMIGUINHAS</h1>
         </div>
         <div class="container start">
-            
+
             <img class="logo-inicio none" src="img/logo.svg" />
             <div class="container nav">
                 <a class="nav-item" href="receitas.html">Receitas</a>
@@ -29,4 +31,395 @@
         </div>
     </div>
 </body>
+<script>
+localStorage.clear()
+ function adicionarReceitasDocesIniciais() {
+  const receitasDocesIniciais = [
+    {
+      id: 1,
+      nome: "Bolo de Chocolate",
+      categoria: "Bolo",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 xícara de chá de açúcar</li>
+          <li>1 xícara de chá de farinha de trigo</li>
+          <li>1/2 xícara de chá de achocolatado em pó</li>
+          <li>1/2 xícara de chá de leite</li>
+          <li>1/2 xícara de chá de óleo</li>
+          <li>3 ovos</li>
+          <li>1 colher de sopa de fermento em pó</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Preaqueça o forno a 180°C.</li>
+          <li>Em uma tigela, misture todos os ingredientes secos.</li>
+          <li>Adicione os ovos, o leite e o óleo e misture até obter uma massa homogênea.</li>
+          <li>Despeje a massa em uma forma untada e enfarinhada.</li>
+          <li>Asse por aproximadamente 30-40 minutos, ou até que um palito saia limpo.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 2,
+      nome: "Pudim de Leite Condensado",
+      categoria: "Pudim",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 lata de leite condensado</li>
+          <li>2 latas de leite (use a lata do leite condensado como medida)</li>
+          <li>3 ovos</li>
+          <li>1 xícara de chá de açúcar</li>
+          <li>1 colher de sopa de água</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Para a calda, derreta o açúcar em uma panela e adicione a água, mexendo até caramelizar.</li>
+          <li>Despeje o caramelo em uma forma de pudim.</li>
+          <li>No liquidificador, bata o leite condensado, o leite e os ovos até ficar homogêneo.</li>
+          <li>Despeje a mistura na forma caramelizada e asse em banho-maria por cerca de 1 hora a 180°C.</li>
+          <li>Deixe esfriar antes de desenformar e servir.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 3,
+      nome: "Mousse de Maracujá",
+      categoria: "Mousse",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 lata de leite condensado</li>
+          <li>1 lata de creme de leite</li>
+          <li>1/2 xícara de suco de maracujá concentrado</li>
+          <li>1 pacote de gelatina incolor sem sabor</li>
+          <li>1/4 de xícara de água</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Hidrate a gelatina na água e dissolva em banho-maria.</li>
+          <li>No liquidificador, bata o leite condensado, o creme de leite e o suco de maracujá.</li>
+          <li>Adicione a gelatina dissolvida e bata novamente até que a mistura fique homogênea.</li>
+          <li>Despeje em taças ou forma e leve à geladeira por 3 horas ou até firmar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 4,
+      nome: "Torta de Limão",
+      categoria: "Torta",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 pacote de biscoito de maisena</li>
+          <li>1/2 xícara de manteiga derretida</li>
+          <li>1 lata de leite condensado</li>
+          <li>1 caixa de creme de leite</li>
+          <li>1/2 xícara de suco de limão</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Primeiro, triture os biscoitos no processador até virar uma farofa.</li>
+          <li>Adicione a manteiga derretida e misture bem.</li>
+          <li>Pressione a mistura no fundo de uma forma de aro removível.</li>
+          <li>Em uma tigela, misture o leite condensado, o creme de leite e o suco de limão.</li>
+          <li>Despeje sobre a base de biscoito e leve à geladeira por pelo menos 2 horas.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 5,
+      nome: "Brigadeiro",
+      categoria: "Docinho",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 lata de leite condensado</li>
+          <li>2 colheres de sopa de achocolatado em pó</li>
+          <li>1 colher de sopa de manteiga</li>
+          <li>Chocolate granulado</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Em uma panela, coloque o leite condensado, o achocolatado e a manteiga.</li>
+          <li>Cozinhe em fogo baixo, mexendo sempre, até o brigadeiro soltar do fundo da panela.</li>
+          <li>Deixe esfriar um pouco, modele em bolinhas e passe no chocolate granulado.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 6,
+      nome: "Cocada",
+      categoria: "Docinho",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>2 xícaras de açúcar</li>
+          <li>1 xícara de água</li>
+          <li>1 pacote de coco ralado (500g)</li>
+          <li>1 colher de sopa de manteiga</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Em uma panela, misture o açúcar e a água. Leve ao fogo médio até formar uma calda.</li>
+          <li>Adicione o coco ralado e a manteiga. Mexa bem até o coco estar bem envolvido na calda.</li>
+          <li>Continue mexendo até que a mistura comece a desgrudar do fundo da panela.</li>
+          <li>Despeje em uma forma untada e corte em quadrados quando esfriar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 7,
+      nome: "Pavê de Chocolate",
+      categoria: "Pavê",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 pacote de biscoito champagne</li>
+          <li>1 lata de leite condensado</li>
+          <li>1 lata de creme de leite</li>
+          <li>2 colheres de sopa de achocolatado em pó</li>
+          <li>1/2 xícara de leite</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Em uma panela, misture o leite condensado, o creme de leite e o achocolatado.</li>
+          <li>Leve ao fogo e mexa até engrossar um pouco.</li>
+          <li>Em uma travessa, alterne camadas de biscoito molhado no leite e o creme de chocolate.</li>
+          <li>Finalize com o creme e leve à geladeira por pelo menos 2 horas antes de servir.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 8,
+      nome: "Bolo de Fubá",
+      categoria: "Bolo",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 xícara de fubá</li>
+          <li>1 xícara de farinha de trigo</li>
+          <li>1 xícara de açúcar</li>
+          <li>1/2 xícara de óleo</li>
+          <li>1 xícara de leite</li>
+          <li>3 ovos</li>
+          <li>1 colher de sopa de fermento em pó</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Preaqueça o forno a 180°C.</li>
+          <li>Em uma tigela, misture todos os ingredientes secos.</li>
+          <li>Adicione o leite, o óleo e os ovos e misture bem até a massa ficar homogênea.</li>
+          <li>Despeje em uma forma untada e enfarinhada e asse por 40 minutos ou até dourar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 9,
+      nome: "Torta de Maçã",
+      categoria: "Torta",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>2 maçãs</li>
+          <li>1 xícara de açúcar</li>
+          <li>2 colheres de sopa de manteiga</li>
+          <li>1 pacote de massa folhada</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Descasque e corte as maçãs em fatias finas.</li>
+          <li>Em uma panela, derreta a manteiga e adicione as maçãs e o açúcar. Cozinhe até as maçãs amolecerem.</li>
+          <li>Coloque as maçãs na massa folhada e feche a torta.</li>
+          <li>Asse em forno preaquecido a 180°C por 30 minutos ou até dourar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 10,
+      nome: "Biscoito de Amido de Milho",
+      categoria: "Biscoito",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>2 xícaras de amido de milho</li>
+          <li>1 xícara de açúcar</li>
+          <li>1/2 xícara de manteiga</li>
+          <li>1 ovo</li>
+          <li>1 colher de chá de essência de baunilha</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Em uma tigela, misture todos os ingredientes até formar uma massa homogênea.</li>
+          <li>Modele os biscoitos e coloque-os em uma forma untada.</li>
+          <li>Asse em forno preaquecido a 180°C por cerca de 15 minutos ou até dourar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 11,
+      nome: "Geladinho de Chocolate",
+      categoria: "Gelado",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 lata de leite condensado</li>
+          <li>1/2 xícara de achocolatado em pó</li>
+          <li>1 xícara de leite</li>
+          <li>1 xícara de creme de leite</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Em uma panela, misture todos os ingredientes e cozinhe em fogo baixo até obter um creme.</li>
+          <li>Despeje a mistura em saquinhos e leve ao congelador por 6 horas ou até congelar completamente.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 12,
+      nome: "Fudge de Chocolate",
+      categoria: "Docinho",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>2 xícaras de chocolate meio amargo picado</li>
+          <li>1 lata de leite condensado</li>
+          <li>1 colher de sopa de manteiga</li>
+          <li>1/2 xícara de nozes ou castanhas (opcional)</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Derreta o chocolate e a manteiga em banho-maria.</li>
+          <li>Adicione o leite condensado e mexa até ficar homogêneo.</li>
+          <li>Coloque as nozes ou castanhas, se desejar, e despeje a mistura em uma forma untada.</li>
+          <li>Deixe esfriar e corte em quadrados antes de servir.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 13,
+      nome: "Bolo de Cenoura",
+      categoria: "Bolo",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>2 cenouras médias</li>
+          <li>1 xícara de óleo</li>
+          <li>3 ovos</li>
+          <li>2 xícaras de açúcar</li>
+          <li>2 xícaras de farinha de trigo</li>
+          <li>1 colher de sopa de fermento em pó</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Preaqueça o forno a 180°C.</li>
+          <li>Bata as cenouras, o óleo e os ovos no liquidificador.</li>
+          <li>Em uma tigela, misture os ingredientes secos e adicione a mistura de cenoura.</li>
+          <li>Despeje em uma forma untada e asse por 40 minutos ou até dourar.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 14,
+      nome: "Canjica",
+      categoria: "Docinho",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>500g de milho para canjica</li>
+          <li>1 litro de leite</li>
+          <li>1 lata de leite condensado</li>
+          <li>1 xícara de açúcar</li>
+          <li>1 coco ralado</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Deixe o milho de molho por 12 horas e cozinhe até ficar bem macio.</li>
+          <li>Adicione os outros ingredientes e cozinhe até engrossar.</li>
+          <li>Sirva quente ou gelado.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    },
+    {
+      id: 15,
+      nome: "Pipoca Doce",
+      categoria: "Docinho",
+      receita: `
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li>1 xícara de milho de pipoca</li>
+          <li>1 xícara de açúcar</li>
+          <li>1/4 de xícara de manteiga</li>
+          <li>1 colher de chá de essência de baunilha</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+          <li>Estoure a pipoca em uma panela.</li>
+          <li>Em uma outra panela, derreta a manteiga, adicione o açúcar e mexa até caramelizar.</li>
+          <li>Despeje a calda sobre a pipoca estourada e misture bem.</li>
+          <li>Deixe esfriar e sirva.</li>
+        </ol>`,
+      pessoa: "Formiguinhas",
+      minhaReceita: false,
+      curtido: false,
+      salvo: false
+    }
+  ];
+
+  // Salvar as receitas no localStorage
+  localStorage.setItem('receitas', JSON.stringify(receitasDocesIniciais));
+}
+
+// Chama a função para adicionar as receitas doces iniciais no localStorage ao carregar o site
+if (!localStorage.getItem('receitas')) {
+  adicionarReceitasDocesIniciais();
+}
+
+
+
+</script>
+
 </html>
