@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transition: all ease 0.3s;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+body {
+    background: rgba(255, 240, 207, 0.3);
+    padding: 20px;
+}
+
+.inicio {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container.bet {
+    justify-content: center;
+}
+
+.container.start {
+    align-items: start !important;
+}
+
+.logo-inicio {
+    width: 120px;
+    margin-right: 40px;
+}
+
+.titulo {
+    font-family: 'Italiana';
+    font-size: 90px;
+    padding: 5px;
+}
+
+.nav {
+    width: 100%;
+    cursor: pointer;
+}
+
+.nav-item {
+    margin-right: 35px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    font-family: 'Poppins';
+    font-size: 18px;
+}
+
+.nav-item:hover, .nav-item.ativo {
+    color: #8D8D8D;
+    border-bottom: 2px solid #E11E46;
+}
+
+.none {
+    opacity: 0;
+}
+
+.logo-nav {
+    width: 55px;
+    margin-right: 35px;
+}
+
+.titulo-2 {
+    font-size: 50px;
+    font-family: 'Italiana';
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.titulo-div {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    background-color: #66382F;
+    border: none;
+    font-weight: 600;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Poppins';
+    border-radius: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button span {
+    margin-left: 5px;
+}
+
+.receitas {
+    width: 100%;
+    font-family: 'Poppins';
+}
+
+.item-3 {
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-3.b {
+    border-right: 1px solid black;
+}
+
+.titulo-3 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.itens {
+    font-size: 18px;
+}
+
+.itens p {
+    cursor: pointer;
+}
+
+.itens p span {
+    font-style: italic;
+    color: #E11E46;
+}
+
+.categoria {
+    margin-top: 20px;
+}
+
+.delete {
+    color: #E11E46;
+    cursor: pointer;
+}
+
+.ver {
+    color: #66382F;
+    cursor: pointer;
+}
+
+.itens-minhas {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.itens-minhas p {
+    font-weight: 500;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.div-input {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.div-input div {
+    width: 45%;  
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border-radius: 4px;
+    border:2px solid #66382F;
+    padding: 10px;
+}
+
+textarea.input {
+    height: max-content;
+    transition: none;
+    resize: vertical;
+}
