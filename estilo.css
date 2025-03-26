@@ -196,6 +196,18 @@ body {
     padding: 10px;
 }
 
+.button.cancelar {
+    background: transparent;
+    border: 1px solid #E11E46;
+    color: #E11E46;
+    margin-right: 10px;
+}
+
+.div-button {
+    display: flex;
+    justify-content: end;
+}
+
 textarea.input {
     height: max-content;
     transition: none;
