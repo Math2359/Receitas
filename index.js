@@ -2,6 +2,7 @@ function adicionar() {
     const inputNome = document.getElementById("nome");
     const inputCategoria = document.getElementById("categoria");
     const inputReceita = document.getElementById("receita");
+    const img = document.getElementById("img");
     const pessoa = "Formiguinhas"
     const minhaReceita = true;
 
@@ -14,6 +15,7 @@ function adicionar() {
         id: 0,
         curtido: false,
         salvo: false,
+        img: img.src
     }
 
     const listaString = localStorage.getItem("receitas");
@@ -34,9 +36,9 @@ function adicionar() {
         receita.id = 1;
 
         const lista = [receita];
-        
+
         const novaLista = JSON.stringify(lista);
-        
+
         localStorage.setItem("receitas", novaLista)
     }
 
@@ -57,7 +59,7 @@ function deletar(id) {
         lista.splice(index, 1);
 
         localStorage.setItem("receitas", JSON.stringify(lista));
-        
+
         obterMinhasReceitas()
     }
 }
@@ -80,6 +82,14 @@ function obterReceitas() {
             listaAgrupada[obj.categoria].push(obj);
         }
 
+        let divNova = document.createElement("div")
+
+        divNova.classList.add("item-3", "b");
+
+        const length = Math.round(listaAgrupada.length / 3);
+
+        let cont = 1;
+
         for (let item of listaAgrupada) {
             const div = document.createElement("div");
             const p = document.createElement("p")
@@ -97,7 +107,22 @@ function obterReceitas() {
                 divItens.innerHTML += `<p onclick="window.location.replace('ver-receita.html?id=${cat.id}')">${cat.nome} <span>by ${cat.pessoa}</span></p>`
             }
 
-            divCategoria.appendChild(div)
+
+            divNova.appendChild(div);
+
+            if (cont % length === 0 || cont === listaAgrupada.length) {
+
+
+                if (cont === listaAgrupada.length) {
+                    divNova.classList.remove("b")
+                }
+                divCategoria.append(divNova);
+                divNova = document.createElement("div");
+
+                divNova.classList.add("item-3", "b");
+            }
+
+            cont++
         }
     }
 }
@@ -133,6 +158,38 @@ function obterMinhasReceitas() {
     }
 }
 
+function obterSalvos() {
+    const listaString = localStorage.getItem("receitas");
+
+    const divCategoria = document.getElementById("categoria");
+
+    divCategoria.innerHTML = ""
+
+    if (listaString) {
+        const lista = JSON.parse(listaString).filter(x => x.salvo);
+
+        let cont = 1;
+
+        for (item of lista) {
+            const div = document.createElement("div");
+            div.classList.add("itens-minhas");
+
+            div.innerHTML = `
+                    <p>${cont}</p>
+                    <p>${item.nome}</p>
+                    
+                    <span class="material-symbols-outlined ver" onclick="window.location.replace('ver-receita.html?id=${item.id}')">
+                        visibility
+                    </span>`;
+
+            cont++;
+
+            divCategoria.appendChild(div)
+        }
+
+    }
+}
+
 function obterReceitaPorId(id) {
     const listaString = localStorage.getItem("receitas");
 
@@ -149,7 +206,7 @@ function obterReceitaPorId(id) {
         if (receita.curtido) {
             curtida.classList.add("cheio")
         }
-        
+
         const salvar = document.getElementById("salvar");
         if (receita.salvo) {
             salvar.classList.add("cheio")
@@ -157,7 +214,31 @@ function obterReceitaPorId(id) {
 
         const divReceita = document.getElementById("receita");
         divReceita.innerHTML = receita.receita
+
+        const img = document.getElementById("img");
+        img.src = receita.img
     }
+}
+
+function encodeImageFileAsURL(element) {
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+        const imgExiste = document.getElementById("img");
+        const botao = document.getElementById("botao");
+        botao.innerHTML = "Trocar imagem <span class='material-symbols-outlined'>image</span>"
+        if (imgExiste) {
+            imgExiste.src = reader.result;
+        } else {
+            const img = document.createElement("img")
+            img.id = "img";
+            img.src = reader.result;
+            img.classList.add("img-receita")
+            const div = document.getElementById("img-container");
+            div.appendChild(img)
+        }
+    }
+    reader.readAsDataURL(file);
 }
 
 function adicionarCurtida(e, id, tipo) {
@@ -165,14 +246,14 @@ function adicionarCurtida(e, id, tipo) {
 
     if (listaString) {
         const lista = JSON.parse(listaString)
-    
+
         const index = lista.findIndex(x => x.id === Number(id));
-    
+
         const receita = lista[index];
 
         if (e.target.classList.contains("cheio")) {
             e.target.classList.remove("cheio");
-            
+
             if (tipo === "curtir")
                 receita.curtido = false;
             else
@@ -189,5 +270,6 @@ function adicionarCurtida(e, id, tipo) {
         lista[index] = receita;
 
         localStorage.setItem("receitas", JSON.stringify(lista))
-    }   
+    }
 }
+

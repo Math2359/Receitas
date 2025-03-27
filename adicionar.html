@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,close,delete" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,close,delete,image" />
     <link
         href="https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -15,8 +15,8 @@
     <title>Formiguinhas</title>
 </head>
 
-<body>
-    <div class=" container nav">
+<body class="body-receita">
+    <div class="container nav">
         <a href="index.html">
             <img class="logo-nav" src="img/logo.svg" />
         </a>
@@ -30,14 +30,26 @@
             <p class="titulo-2">Adicionar receita</p>
         </div>
         <div class="width-100">
-            <div class="div-input">
-                <div>
-                    <p>Qual a sobremesa?</p>
-                    <input id="nome" class="input" placeholder="Ex.: Bolo de chocolate, Tapioca de morango..." type="text">
+            <div class="container-input">
+                <div class="div-input">
+                    <div>
+                        <p>Qual a sobremesa?</p>
+                        <input id="nome" class="input" placeholder="Ex.: Bolo de chocolate, Tapioca de morango..." type="text">
+                    </div>
+                    <div>
+                        <p>Categoria da sobremesa?</p>
+                        <input id="categoria" class="input" placeholder="Ex.: Bolo, Pudim, Torta..." type="text">
+                    </div>
                 </div>
-                <div>
-                    <p>Categoria da sobremesa?</p>
-                    <input id="categoria" class="input" placeholder="Ex.: Bolo, Pudim, Torta..." type="text">
+                <div class="div-input" id="img-container">
+                    
+                    <input hidden type="file" id="file-input" accept="image/*" onchange="encodeImageFileAsURL(this)">
+                    <div>
+    
+                        <button id="botao" class="button" onclick="document.getElementById('file-input').click()">Cadastrar imagem <span class="material-symbols-outlined">
+                            image
+                        </span></button>
+                    </div>
                 </div>
             </div>
             <div>

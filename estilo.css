@@ -151,11 +151,16 @@ body {
     font-family: 'Poppins';
 }
 
+.img-receita {
+    width: 50%;
+}
+
 .receita {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    flex: 1 1 auto;
 }
 
 .item-3 {
@@ -163,6 +168,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: left;
+    height: 300px;
 }
 
 .item-3.b {
@@ -218,10 +225,17 @@ body {
     width: 100%;
 }
 
+.container-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .div-input {
     display: flex;
-    width: 50%;
+    width: 49%;
     justify-content: space-between;
+    align-items: end;
     margin-bottom: 20px;
 }
 
@@ -254,4 +268,17 @@ textarea.input {
     height: max-content;
     transition: none;
     resize: vertical;
+    font-family: 'Poppins';
+}
+
+.img-receita-container {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.receita-container {
+    width: 49%;
+    max-height: 500px;
 }
